@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Admin Dashboard — view and manage all exhibition visitor feedback.">
+  <title>Dashboard — Exhibition Visitor Log</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <main class="page-wrapper page-wrapper--wide">
+    <nav class="admin-nav">
+      <div class="admin-nav__brand">Exhibition <em>Dashboard</em></div>
+      <div class="admin-nav__actions">
+        <span class="tag tag--gold" id="admin-username">admin</span>
+        <button class="btn btn--ghost btn--sm" id="logout-btn">Log Out</button>
+      </div>
+    </nav>
+
+    <div class="stats-bar">
+      <div class="stats-bar__count">
+        <span class="stats-bar__number" id="total-count">—</span>
+        <span class="stats-bar__label">total responses</span>
+      </div>
+      <div class="stats-bar__controls">
+        <select class="sort-select" id="sort-select" aria-label="Sort submissions">
+          <option value="date_desc">Newest First</option>
+          <option value="date_asc">Oldest First</option>
+          <option value="rating_desc">Highest Rated</option>
+          <option value="rating_asc">Lowest Rated</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="card" style="padding: 0; overflow: hidden;">
+      <table class="submissions-table" id="submissions-table">
+        <thead>
+          <tr>
+            <th>Visitor</th>
+            <th>Rating</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="submissions-body">
+          <!-- Rows are injected by JS -->
+        </tbody>
+      </table>
+
+      <div class="empty-state" id="empty-state" style="display: none;">
+        <div class="empty-state__icon">✦</div>
+        <p class="empty-state__text">No submissions yet. Once visitors start leaving feedback, they'll appear here.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="modal-overlay" id="delete-modal">
+    <div class="modal">
+      <h3 class="modal__title">Delete Response?</h3>
+      <p class="modal__body">This action is permanent. This submission will be removed from the database and cannot be recovered.</p>
+      <div class="modal__actions">
+        <button class="btn btn--secondary btn--sm" id="delete-cancel">Cancel</button>
+        <button class="btn btn--danger btn--sm" id="delete-confirm">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="/js/admin-dashboard.js"></script>
+</body>
+</html>

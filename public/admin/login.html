@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Admin login for the Exhibition Visitor Log.">
+  <title>Admin Login — Exhibition Visitor Log</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <div class="login-wrapper">
+    <div class="login-card card">
+      <header class="page-header">
+        <span class="page-header__eyebrow">Admin Portal</span>
+        <h2 class="page-header__title">Sign In</h2>
+        <p class="page-header__subtitle" style="font-size: 0.9rem;">Enter your credentials to access the dashboard.</p>
+      </header>
+
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            class="form-input"
+            placeholder="admin"
+            autocomplete="username"
+            required
+          >
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            class="form-input"
+            placeholder="••••••••"
+            autocomplete="current-password"
+            required
+          >
+        </div>
+
+        <p class="form-error" id="login-error" style="margin-bottom: 1rem;">Incorrect username or password.</p>
+
+        <button type="submit" class="btn btn--primary" id="login-btn">
+          <span class="btn__spinner"></span>
+          <span class="btn__text">Log In</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="/js/admin-login.js"></script>
+</body>
+</html>
